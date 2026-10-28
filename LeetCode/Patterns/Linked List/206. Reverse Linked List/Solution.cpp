@@ -11,24 +11,22 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        if(head==NULL||head->next==NULL){
-            return head;
-        }
-        ListNode* prev =NULL;
-        ListNode* temp=head;
-        ListNode* nextptr=NULL;
-        while(temp!=NULL){
-            //temp k baad wala address store
-            nextptr=temp->next;
-              //linking to previous node
-            temp->next=prev;
+        
+
             
-            prev =temp;
-            temp=nextptr;
+        ListNode * curr=NULL;
+        
+        while(head){
             
-            
+             ListNode * temp=head->next;
+             head->next=curr;
+             curr=head;
+             head=temp;
+             
         }
         
-        return prev;
+        
+        return curr;
     }
 };
+  
